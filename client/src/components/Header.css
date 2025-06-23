@@ -1,0 +1,249 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.shrunk {
+  padding: 1px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ff6b6b;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #e55a5a;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+  color: #ff6b6b;
+  text-decoration: none; /* Đảm bảo không gạch chân khi hover */
+}
+
+.nav.open {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+
+.nav.open {
+  display: block;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Loại bỏ gạch chân */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.icon-button:hover {
+  background-color: #ff6b6b;
+  text-decoration: none; /* Đảm bảo không gạch chân khi hover */
+}
+
+.icon-button .icon {
+  font-size: 16px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.icon-button:hover .icon {
+  color: #fff;
+}
+
+.icon-button .count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.account-link {
+  text-decoration: none; /* Loại bỏ gạch chân */
+  color: #333;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.account-link:hover {
+  color: #ff6b6b;
+  text-decoration: none; /* Đảm bảo không gạch chân khi hover */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 10px 15px;
+    height: 70px;
+  }
+  .header.shrunk {
+    height: 35px;
+  }
+  .nav {
+    margin-right: 35px;
+  }
+  .nav ul {
+    gap: 12px;
+  }
+  .icon-button {
+    padding: 6px;
+  }
+  .icon-button .count {
+    padding: 1px 5px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px;
+    height: 60px;
+  }
+  .header.shrunk {
+    height: 30px;
+  }
+  .nav {
+    display: none;
+  }
+  .nav.open {
+    display: block;
+  }
+  .nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .icon-button {
+    padding: 6px;
+    height: 36px;
+  }
+  .account-link {
+    font-size: 12px;
+  }
+  .icon-button .count {
+    padding: 1px 4px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    height: 50px;
+  }
+  .header.shrunk {
+    height: 25px;
+  }
+  .logo a {
+    font-size: 18px;
+  }
+  .icon-button {
+    padding: 4px;
+    height: 32px;
+  }
+  .account-link {
+    font-size: 10px;
+  }
+  .icon {
+    font-size: 14px;
+  }
+  .icon-button .count {
+    padding: 0px 3px;
+    font-size: 7px;
+  }
+}

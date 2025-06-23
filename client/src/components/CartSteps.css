@@ -1,0 +1,91 @@
+.cart-steps {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px 0;
+  position: relative;
+}
+
+/* Đường kẻ nối giữa các bước */
+.cart-steps::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #ddd;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+/* Bước đang active */
+.step.active .step-number {
+  background: #333;
+  border-color: #333;
+  color: white;
+}
+
+/* Bước đã hoàn thành */
+.step.completed .step-number {
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.step-content h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.step-content p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.step.active .step-content h3 {
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-steps {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cart-steps::before {
+    display: none;
+  }
+  
+  .step {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,127 @@
+.progress-steps {
+  background: white;
+  padding: 40px 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+}
+
+.step-number {
+  font-size: 48px;
+  font-weight: 800;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  text-align: center;
+}
+
+.progress-step.active .step-number {
+  color: #2c3e50;
+  text-shadow: 0 2px 4px rgba(44, 62, 80, 0.1);
+}
+
+.progress-step.completed .step-number {
+  color: #27ae60;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.progress-step:not(.active) .step-title {
+  color: #bdc3c7;
+}
+
+.step-subtitle {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 0;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.progress-step:not(.active) .step-subtitle {
+  color: #d5d8dc;
+}
+
+.step-connector {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 2px;
+  background: #ecf0f1;
+  transition: all 0.3s ease;
+}
+
+.step-connector.completed {
+  background: #27ae60;
+}
+
+.step-connector::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #ecf0f1;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.step-connector.completed::after {
+  border-left-color: #27ae60;
+}
+
+@media (max-width: 768px) {
+  .progress-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .progress-step {
+    flex-direction: column;
+    text-align: center;
+    max-width: none;
+  }
+
+  .step-number {
+    font-size: 36px;
+    min-width: auto;
+  }
+
+  .step-connector {
+    display: none;
+  }
+}

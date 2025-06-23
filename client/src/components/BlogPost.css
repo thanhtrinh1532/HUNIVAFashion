@@ -1,0 +1,128 @@
+/* Basic styling to get you started. You'll need to expand this
+   by inspecting the original site's CSS. */
+
+   .blog-item {
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden; /* Clear floats for image overlay */
+  }
+  
+  .blog-item .entry-image {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 4px;
+  }
+  
+  .blog-item .entry-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-item .entry-image:hover img {
+      transform: scale(1.05);
+  }
+  
+  .blog-item .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+  
+  .blog-item .entry-image:hover .image-overlay {
+      opacity: 1;
+  }
+  
+  
+  .entry-header {
+    margin-top: 0; /* Adjusted from previous version */
+    background-color: white;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .entry-title {
+      margin-bottom: 10px;
+  }
+  
+  .entry-title a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.8em; /* Kích thước lớn hơn cho tiêu đề */
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+  
+  .entry-title a:hover {
+    color: #ff6b6b;
+    text-decoration: none;
+  }
+  
+  .info-wrap {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px; /* Add margin below info */
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .meta-author, .post-date {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meta-author a, .post-date a {
+      text-decoration: none;
+      color: inherit; /* Inherit color from parent span */
+  }
+  
+  .meta-author a:hover, .post-date a:hover {
+      color: #ff6b6b;
+  }
+  
+  .meta-author svg, .post-date svg {
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+  
+  .entry-summary {
+    margin-top: 0; /* Adjusted from previous version */
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .entry-readmore {
+    margin-top: 0; /* Adjusted from previous version */
+  }
+  
+  .entry-readmore a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #333; /* Màu tối hơn */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .entry-readmore a:hover {
+    background-color: #ff6b6b; /* Màu xanh khi hover */
+    text-decoration: none;
+  }
+  

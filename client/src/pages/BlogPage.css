@@ -1,0 +1,223 @@
+/* Basic layout styling for BlogPage */
+.site-main {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  background-color: #f8f8f8; /* Màu nền nhẹ */
+}
+
+.container-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px; /* Compensate for column padding */
+  margin-right: -15px;
+}
+
+.columns {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Sidebar Styles */
+.sidebar-left {
+  order: -1; /* Đặt sidebar bên trái trên desktop */
+  flex: 0 0 25%; /* Chiếm 25% chiều rộng */
+  max-width: 25%;
+}
+
+/* Main Content Styles */
+#content {
+  flex: 0 0 75%; /* Chiếm 75% chiều rộng */
+  max-width: 75%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) { /* Tablet and below */
+  .sidebar-left, #content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .sidebar-left {
+    order: 0; /* Đặt sidebar về vị trí bình thường trên mobile */
+    margin-bottom: 30px;
+  }
+}
+
+/* Sidebar Toggle (visible only on mobile) */
+.div-toggle-sidebar {
+  display: none; /* Hidden by default on desktop */
+  padding: 10px 0;
+}
+
+/* navbar */
+
+
+@media (max-width: 767px) { /* Mobile specific */
+  .div-toggle-sidebar {
+    display: block; /* Show on mobile */
+  }
+  .toggle-sidebar {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+/* Widget General Styles */
+.widget-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.widget-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Search Widget */
+.widget-search .search-form {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.widget-search input[type="search"] {
+  border: none;
+  padding: 10px;
+  flex-grow: 1;
+  outline: none;
+}
+
+.widget-search button[type="submit"] {
+  background-color: #666666;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-search button[type="submit"]:hover {
+  background-color: #ff6b6b;
+}
+
+/* Categories Widget */
+.widget-categories ul, .widget-archives ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-categories li, .widget-archives li {
+  margin-bottom: 10px;
+}
+
+.widget-categories li a, .widget-archives li a {
+  text-decoration: none;
+  color: #555;
+  display: block;
+  padding: 5px 0;
+}
+
+.widget-categories li a:hover, .widget-archives li a:hover {
+  color: #ff6b6b;
+}
+
+/* Latest Posts Widget */
+.widget-latest-posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-latest-posts .nasa-widget-item-blog {
+  margin-bottom: 15px;
+}
+
+.widget-latest-posts .nasa-widget-item-blog:last-child {
+  margin-bottom: 0;
+}
+
+.nasa-widget-item-blog .nasa-flex {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nasa-widget-image {
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.nasa-widget-image img {
+  border-radius: 4px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.nasa-widget-info {
+  flex-grow: 1;
+}
+
+.nasa-widget-info .nasa-title {
+  font-size: 1em;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.nasa-widget-info .nasa-date {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.nasa-widget-info .nasa-title:hover {
+    color: #007bff;
+}
+
+
+/* Tags Widget */
+.widget-tags .tagcloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.widget-tags .tagcloud a {
+  background-color: #f0f0f0;
+  color: #555;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85em;
+  transition: background-color 0.3s ease;
+}
+
+.widget-tags .tagcloud a:hover {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+/* BlogPost.css styles should still be included in src/components/BlogPost.css */
