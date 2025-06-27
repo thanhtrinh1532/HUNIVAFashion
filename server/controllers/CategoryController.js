@@ -1,10 +1,11 @@
-const { Category } = require('../models/Category'); // Sequelize model
+const { Category } = require('../models/Categories'); // Sequelize model
 
 const CategoryController = {
   // Lấy tất cả danh mục
+  // Lấy tất cả danh mục
   getAllCategories: async (req, res) => {
     try {
-      const categories = await Category.findAll();
+      const categories = await Category.findAll(); // Lấy tất cả danh mục từ bảng categories
       res.status(200).json(categories);
     } catch (error) {
       res.status(500).json({ error: 'Error fetching categories', details: error.message });

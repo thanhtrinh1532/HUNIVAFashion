@@ -1,17 +1,29 @@
-// server/routes/adminRoutes.js
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const AdminController = require('../controllers/AdminController');
 
-router.get('/users', AdminController.getAllUsers);
-router.get('/orders', AdminController.getAllOrders);
-router.get('/products', AdminController.getAllProducts);
-router.put('/users/:id', AdminController.updateUser);
-router.put('/orders/:id', AdminController.updateOrder);
-router.put('/products/:id', AdminController.updateProduct);
-router.post('/products', AdminController.createProduct);
-router.delete('/users/:id', AdminController.deleteUser);
-router.delete('/orders/:id', AdminController.deleteOrder);
-router.delete('/products/:id', AdminController.deleteProduct);
+// ✅ Middleware đơn giản tạm thời cho phép truy cập
+const verifyAdmin = (req, res, next) => {
+  // ⚠️ Đây là bản tạm thời để test - KHÔNG dùng cho production
+  console.log('Tạm thời cho phép tất cả request vào admin routes');
+  next();
+};
+
+// 📦 Route quản lý người dùng
+router.get('/users', verifyAdmin, AdminController.getAllUsers);
+// router.put('/users/:id', verifyAdmin, AdminController.updateUser);
+router.delete('/users/:id', verifyAdmin, AdminController.deleteUser);
+
+// 📦 Route quản lý đơn hàng
+router.get('/orders', verifyAdmin, AdminController.getAllOrders);
+router.put('/orders/:id', verifyAdmin, AdminController.updateOrder);
+router.delete('/orders/:id', verifyAdmin, AdminController.deleteOrder);
+
+// 📦 Route quản lý sản phẩm
+router.get('/products', verifyAdmin, AdminController.getAllProducts);
+router.post('/products', verifyAdmin, AdminController.createProduct);
+router.put('/products/:id', verifyAdmin, AdminController.updateProduct);
+router.delete('/products/:id', verifyAdmin, AdminController.deleteProduct);
 
 module.exports = router;

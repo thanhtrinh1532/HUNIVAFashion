@@ -1,0 +1,427 @@
+.admin-container {
+    padding-top: 70px;
+    min-height: 100vh;
+    background-color: #fff5f5;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    color: #808080;
+    font-size: 12px;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.nav-btn:active {
+    color: #ff4d4d;
+    transform: scale(0.95);
+}
+
+.header-icons span {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.header-icons span:hover {
+    color: #ff6b6b;
+}
+
+.account-section {
+    padding: 20px;
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+.account-title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.account-subtitle {
+    font-size: 14px;
+    color: #808080;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-box {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.alert-box.success-alert {
+    background: #e6ffed;
+    color: #257942;
+    border: 1px solid #257942;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.confirm-table {
+    background: #fffbe6;
+    border: 1px solid #f0ad4e;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.welcome-message {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #ff6b6b;
+    border-bottom: 2px solid #ff6b6b;
+}
+
+.admin-content,
+.orders-list,
+.address-content,
+.profile-content {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.product-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #27ae60;
+}
+
+.product-list h3 .orders-list h3,
+.address-content h3,
+.profile-content h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 10px;
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.product-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.product-item input {
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 120px;
+    min-height: 40px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    flex: 2 1 220px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.product-item input[type="number"] {
+    flex: 1 1 100px;
+    /* Giá và số lượng nhỏ hơn */
+    min-width: 80px;
+    max-width: 140px;
+}
+
+.product-item input.desc-iput {
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 180px;
+    min-height: 40px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    flex: 2 1 220px;
+    max-width: 100%;
+    resize: vertical;
+    background: #fff;
+}
+
+.product-item img {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    width: 100px;
+    height: 100px;
+}
+
+.pagination {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pagination button {
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid #1890ff;
+    background: #fff;
+    color: #1890ff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pagination button:disabled {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+    background: #e6f7ff;
+}
+
+.update-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.orders-list p {
+    margin: 5px 0;
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 3px;
+}
+
+.address-info,
+.profile-info {
+    margin-bottom: 15px;
+}
+
+.address-form,
+.profile-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.address-input,
+.profile-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.address-submit,
+.profile-submit {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.address-submit:hover,
+.profile-submit:hover {
+    background-color: #ff4d4d;
+}
+
+.address-details,
+.profile-details {
+    font-size: 14px;
+    color: #666;
+}
+
+.promo-banner {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banner-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.banner-button:hover {
+    background-color: #ff4d4d;
+}
+
+.add-product-form {
+  border: 1px dashed #aaa;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.add-product-form input,
+.add-product-form textarea {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.filter-sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-sort-bar input,
+.filter-sort-bar select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+

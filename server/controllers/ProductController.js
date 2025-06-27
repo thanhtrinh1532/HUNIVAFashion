@@ -5,7 +5,8 @@ const ProductController = {
   // Lấy tất cả sản phẩm
   getAllProducts: async (req, res) => {
     try {
-      const products = await Product.findAll(); // Sử dụng findAll của Sequelize
+      const filters = req.query; // Lấy các bộ lọc từ query string
+      const products = await Product.findWithFilters(filters); // Sử dụng findAll của Sequelize
       res.status(200).json(products);
     } catch (error) {
       console.error('Error in getAllProducts:', error); // Log lỗi để debug

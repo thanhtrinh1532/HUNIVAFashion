@@ -1,6 +1,6 @@
 const User = require('../models/User');
-const Product = require('../models/Product');
-const Order = require('../models/Order');
+const { Product } = require('../models/Product');const Order = require('../models/Order');
+const Category = require('../models/Categories'); // Thêm import
 const OrderItem = require('../models/OrderDetail');
 const bcrypt = require('bcrypt');
 
@@ -65,27 +65,60 @@ const AdminController = {
   },
 
   // Cập nhật người dùng
-  updateUser: async (req, res) => {
+  updateProduct: async (req, res) => {
     try {
       const { id } = req.params;
-      const { email, password, role } = req.body;
-      const hashedPassword = password ? await bcrypt.hash(password, 10) : undefined;
+      const { name, description, thumbnail, price, quantity, category_id, view } = req.body;
+      console.log('Request params:', { id });
+      console.log('Request body:', req.body);
 
-      const [affectedRows] = await User.update(
-        { email, password: hashedPassword, role },
+      if (!id || isNaN(id)) {
+        return res.status(400).json({ error: 'Valid product ID is required' });
+      }
+
+      if (!name || !price || !category_id) {
+        return res.status(400).json({ error: 'Name, price, and category_id are required' });
+      }
+
+      // Kiểm tra category_id
+      const category = await Category.findByPk(parseInt(category_id));
+      if (!category) {
+        return res.status(400).json({ error: 'Invalid category_id' });
+      }
+
+      // Kiểm tra giá trị số
+      const parsedPrice = parseFloat(price);
+      const parsedQuantity = parseInt(quantity) || 0;
+      const parsedView = view ? parseInt(view) : 0;
+
+      if (isNaN(parsedPrice) || parsedPrice <= 0) {
+        return res.status(400).json({ error: 'Invalid price' });
+      }
+
+      const [affectedRows] = await Product.update(
+        {
+          name,
+          description,
+          thumbnail,
+          price: parsedPrice,
+          quantity: parsedQuantity,
+          category_id: parseInt(category_id),
+          view: parsedView,
+        },
         { where: { id: parseInt(id) } }
       );
 
       if (affectedRows === 0) {
-        return res.status(404).json({ error: 'User not found' });
+        return res.status(404).json({ error: 'Product not found' });
       }
 
-      res.status(200).json({ message: 'User updated successfully' });
+      const updatedProduct = await Product.findByPk(parseInt(id));
+      res.status(200).json({ message: 'Product updated successfully', product: updatedProduct });
     } catch (error) {
-      res.status(500).json({ error: 'Error updating user', details: error.message });
+      console.error('Error updating product:', error);
+      res.status(500).json({ error: 'Error updating product', details: error.message });
     }
   },
-
   // Cập nhật đơn hàng
   updateOrder: async (req, res) => {
     try {
